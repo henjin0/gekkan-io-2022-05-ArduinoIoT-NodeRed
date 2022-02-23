@@ -1,0 +1,124 @@
+[
+    {
+        "id": "6b385427.5235fc",
+        "type": "tab",
+        "label": "フロー 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6732359e.10d27c",
+        "type": "property in",
+        "z": "6b385427.5235fc",
+        "connection": "",
+        "thing": "",
+        "property": "",
+        "name": "",
+        "propname": "openFlag",
+        "defaultname": true,
+        "variableName": "openFlag",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "ef5e68a0.4d9f98"
+            ]
+        ]
+    },
+    {
+        "id": "d8727da9.17c19",
+        "type": "PushMessage",
+        "z": "6b385427.5235fc",
+        "name": "openBox_push",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ef5e68a0.4d9f98",
+        "type": "switch",
+        "z": "6b385427.5235fc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "ca154ffa.a86d6"
+            ],
+            [
+                "b81b513a.e8ae9"
+            ]
+        ]
+    },
+    {
+        "id": "ca154ffa.a86d6",
+        "type": "change",
+        "z": "6b385427.5235fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "だれかが箱を開けました",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "d8727da9.17c19"
+            ]
+        ]
+    },
+    {
+        "id": "b81b513a.e8ae9",
+        "type": "change",
+        "z": "6b385427.5235fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "箱は閉じられました。",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "d8727da9.17c19"
+            ]
+        ]
+    }
+]
